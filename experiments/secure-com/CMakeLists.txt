@@ -60,10 +60,9 @@ set_target_properties(secure_com_fss_lib PROPERTIES
     CXX_STANDARD_REQUIRED TRUE
 )
 
-# 链接必要的库
 target_link_libraries(secure_com_fss_lib PUBLIC ${ONLINE_LIB})
 
-# 如果定义了FSS编译标志，应用它们
+# FSS编译标志
 if(DEFINED FSS_COMPILE_FLAGS)
     target_compile_options(secure_com_fss_lib PRIVATE ${FSS_COMPILE_FLAGS})
 endif()
@@ -138,7 +137,6 @@ add_custom_target(test_secure_com_complete
     COMMENT "Running complete secure communication test"
 )
 
-# 输出构建信息
 message(STATUS "Secure communication executables will be built:")
 message(STATUS "  - com_party_0 (using FSS library from src/networking)")
 message(STATUS "  - com_party_1 (using FSS library from src/networking)")
