@@ -34,6 +34,11 @@ endif ()
 find_package(Threads REQUIRED)
 list(APPEND ONLINE_LIB Threads::Threads)
 
+# oneTBB (required if code/Eigen uses TBB)
+find_package(TBB REQUIRED)    
+list(APPEND ONLINE_LIB TBB::tbb)
+list(APPEND FAKE_OFFLINE_LIB TBB::tbb)
+
 # Create a directory for fake offline data, and pass it to the compiler
 set(FAKE_OFFLINE_DIR "${PROJECT_SOURCE_DIR}/fake-offline-data")
 add_compile_definitions(FAKE_OFFLINE_DIR="${FAKE_OFFLINE_DIR}")
@@ -141,6 +146,17 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm64|aarch64")
         list(APPEND FSS_COMPILE_FLAGS -arch arm64)
     endif()
+endif()
+
+# Turn this ON to silence warnings globally
+option(IGNORE_WARNINGS "Silence all compiler warnings" ON)
+
+if(IGNORE_WARNINGS)
+  if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    add_compile_options(-w)         # GCC/Clang: disable all warnings
+  elseif (MSVC)
+    add_compile_options(/w)         # MSVC: disable all warnings
+  endif()
 endif()
 
 add_subdirectory(experiments)

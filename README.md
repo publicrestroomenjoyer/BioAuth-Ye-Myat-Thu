@@ -21,6 +21,11 @@ Run specific experiments:
 
 **Requirements:** Docker environment
 
+### Google Colab
+
+Try the online demon on Google Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MaJinWakeUp/BioAuth/blob/main/BioAuth_Colab.ipynb)
+> [! NOTE] There is no network traffic control in Colab.
+
 ## Network Testing
 All experiments test performance under 4 different network conditions:
 - **BASELINE**: No network simulation 
