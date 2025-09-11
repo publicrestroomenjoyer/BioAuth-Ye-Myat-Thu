@@ -161,7 +161,7 @@ cd build/experiments/secure-authentication
 # offline + online
 sudo ./secure_authentication_party_0
 sudo ./secure_authentication_party_1
-
+```
 
 ## ⚠️ Important Notes
 
