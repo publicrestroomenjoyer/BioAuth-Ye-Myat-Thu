@@ -173,5 +173,5 @@ Experiments automatically clean up network configurations after completion
 
 ## Acknowledgements
 
-- This project is **based on the work of Boshi Yuan and Shixuan Yang (https://github.com/NemoYuan2008/MD-ML) .
+- This project is based on the work of Boshi Yuan and Shixuan Yang (https://github.com/NemoYuan2008/MD-ML) .
 - Modified and extended by **sakara (2025)**.
