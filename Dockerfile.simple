@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y build-essential cmake git libeigen3-dev libboost-all-dev libssl-dev libgmp-dev libgmpxx4ldbl iproute2 net-tools
+RUN apt-get update && apt-get install -y build-essential cmake git libeigen3-dev libboost-all-dev libssl-dev libgmp-dev libgmpxx4ldbl iproute2 net-tools libtbb-dev
 WORKDIR /app
 COPY . .
 RUN rm -rf build && mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Release && make -j4
